@@ -1,6 +1,6 @@
 # What I did?
 
- - Fetched a dummy API of products and displayed every product on a card using JSX and React.
+ - Fetched a dummy API of products and displayed every product using `Card` component.
 
 # What I learnt?
 - **What is a Component? :** It is a **reusable** piece of UI. In technical terms it is a **function** which **returns** some **JSX**.
