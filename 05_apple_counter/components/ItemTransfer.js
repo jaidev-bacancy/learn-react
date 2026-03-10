@@ -1,30 +1,24 @@
-import { createRoot } from "react-dom/client";
 import Basket from "./Basket";
 import Button from "./Button";
+import { useState } from "react";
 
 const totalApples = 10;
-let rightBasketApples = 0;
-let leftBasketApples = totalApples - rightBasketApples;
-
-const root = createRoot(document.getElementById('root'));
 
 const ItemTransfer = () => {
+   const [rightBasketApples, setRightBasketApples] = useState(0);
+   const [leftBasketApples, setLeftBasketApples]= useState(totalApples - rightBasketApples);
 
    const leftArrowClickHandler = () => {
-      if (rightBasketApples <= 0) { alert("Right bakset is empty"); }
-      else {
-         rightBasketApples--;
-         leftBasketApples++;
-         root.render(<ItemTransfer />);
+      if (rightBasketApples > 0) {
+         setRightBasketApples(rightBasketApples - 1);
+         setLeftBasketApples(leftBasketApples + 1);
       }
    }
 
    const rightArrowClickHandler = () => {
-      if (leftBasketApples <= 0) { alert("Left bakset is empty"); }
-      else {
-         rightBasketApples++;
-         leftBasketApples--;
-         root.render(<ItemTransfer />);
+      if (leftBasketApples > 0) {
+         setLeftBasketApples(leftBasketApples - 1);
+         setRightBasketApples(rightBasketApples + 1);
       }
    }
 
